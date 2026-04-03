@@ -2,10 +2,22 @@ name: first node ci
 
 on: push
 
-jobs:
+jobs: 
   say-hello: 
     runs-on: ubuntu-latest
 
     steps:
       - name: print message
         run: echo "first devops pipeline"
+
+      - name: step - 1 get code
+        uses: actions/checkout@v4
+
+      - name: step - 2 install node
+        uses: actions/setup-node@v3
+        with: 
+          node-version: '18'
+        
+      - name: step - 4 run app
+        run: node app.js
+        
