@@ -1,0 +1,25 @@
+{
+  "name": "devops-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"No tests yet\""
+  },
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaydeepchavda/devops-learning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jaydeepchavda/devops-learning/issues"
+  },
+  "homepage": "https://github.com/jaydeepchavda/devops-learning#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

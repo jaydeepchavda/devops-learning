@@ -1,22 +1,42 @@
-name: first node ci
+name: Node Ci Start
 
 on: push
 
-jobs: 
-  say-hello: 
-    runs-on: ubuntu-latest
+# jobs: 
+#   say-hello: 
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: print message
-        run: echo "first devops pipeline"
+#     steps:
+#       - name: print message
+#         run: echo "first devops pipeline"
 
-      - name: step - 1 get code
-        uses: actions/checkout@v4
+#       - name: step - 1 get code
+#         uses: actions/checkout@v4
 
-      - name: step - 2 install node
-        uses: actions/setup-node@v3
-        with: 
-          node-version: '18'
+#       - name: step - 2 install node
+#         uses: actions/setup-node@v3
+#         with: 
+#           node-version: '18'
         
-      - name: step - 4 run app
-        run: node app.js
+#       - name: step - 4 run app
+#         run: node app.js
+
+jobs:
+  run-app:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name : get code
+        uses : actions/checkout@v4
+
+      - name: setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+        
+      - name: install dependencies 
+        run: npm install
+        
+      - name: run app
+        run: npm start
+

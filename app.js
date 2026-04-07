@@ -1,15 +1,14 @@
-const http = require('http');
+const express = require('express');
+const app = express();
 
-const server = http.createServer((req, res) => {
-  res.end('Hello DevOps 🚀');
+app.get('/', (req, res) => {
+  res.send('Hello DevOps 🚀');
 });
 
-server.listen(3000, () => {
-  console.log('Server running on port 3000');
+app.listen(3000, () => {
+  console.log('Server running');
 
-  // Stop server after 3 seconds (IMPORTANT)
   setTimeout(() => {
-    console.log('Stopping server...');
     process.exit(0);
   }, 3000);
 });
