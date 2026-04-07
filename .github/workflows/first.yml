@@ -22,6 +22,16 @@ on: push
 #         run: node app.js
 
 jobs:
+  test-name:
+    runs-on: ubuntu-latest
+    
+    env:
+      name: ${{secrets.MY_NAME}}
+
+    steps: 
+      - name: print Name
+        run: echo "Hello , ${{env.name}}"
+        
   test:
     runs-on: ubuntu-latest
     
