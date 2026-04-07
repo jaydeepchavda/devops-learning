@@ -22,7 +22,7 @@ on: push
 #         run: node app.js
 
 jobs:
-  run-app:
+  test:
     runs-on: ubuntu-latest
     
     steps:
@@ -40,9 +40,23 @@ jobs:
       - name: run tests
         run: npm test
 
-      - name: build project
-        run: npm run build
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps: 
+      - name: get code
+        uses: actions/checkout@v4
+
+      - name: setup - node
+        uses: actions/setup-node@v4
+
+      
+      - name: install dependencies
+        run: npm ci
         
+      - name: build app
+        run: npm build
+
       - name: run app
         run: npm start
 
