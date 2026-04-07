@@ -43,6 +43,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "18"
+          cache: "npm"
         
       - name: install dependencies 
         run: npm ci
@@ -52,6 +53,10 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20]
+        os: [ubuntu-latest, windows-latest]
     needs: test
     steps: 
       - name: get code
@@ -59,6 +64,10 @@ jobs:
 
       - name: setup - node
         uses: actions/setup-node@v4
+        with:
+          node-version: $ {{matrix.node-version}}
+          cache: 'npm'
+
 
       
       - name: install dependencies
@@ -70,6 +79,6 @@ jobs:
       - name: run app
         env: 
           MY_NAME: ${{secrets.MY_NAME}}
-          
+
         run: npm start
 
