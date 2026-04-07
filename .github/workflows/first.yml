@@ -77,7 +77,7 @@ jobs:
         run: npm run build
 
       - name: upload artifact
-        uses: actions/upload-artifacts@v3
+        uses: actions/upload-artifact@v3
         with: 
           name: app-build
           path: dist/
