@@ -12,3 +12,5 @@ app.listen(3000, () => {
     process.exit(0);
   }, 3000);
 });
+
+console.log("My name is:", process.env.MY_NAME);

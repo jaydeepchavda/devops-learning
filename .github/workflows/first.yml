@@ -31,7 +31,7 @@ jobs:
     steps: 
       - name: print Name
         run: echo "Hello , ${{env.name}}"
-        
+
   test:
     runs-on: ubuntu-latest
     
@@ -68,5 +68,8 @@ jobs:
         run: npm run build
 
       - name: run app
+        env: 
+          MY_NAME: ${{secrets.MY_NAME}}
+          
         run: npm start
 
